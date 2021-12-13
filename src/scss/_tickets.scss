@@ -1,0 +1,22 @@
+@import '_variables';
+@import '_mixins';
+
+#tickets {
+  .info-message__container {
+    margin-bottom: $spacing-medium;
+  }
+}
+
+.ticket {
+  @include background(url('../img/pages/tickets/stripes-light-background.png'));
+  background-repeat: repeat-x;
+  margin-top: $spacing-medium;
+}
+
+#valid-tickets {
+  margin-top: 12px;
+}
+
+#old-tickets {
+  margin-top: $spacing-medium;
+}

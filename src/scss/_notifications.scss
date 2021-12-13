@@ -1,0 +1,49 @@
+@import '_variables';
+@import '_mixins';
+@import '_toggle-switch';
+
+#notifications {
+
+    .info-message__container {
+        margin-bottom: 36px;
+    }
+
+    .movie {
+        @include flex(row, flex-end);
+    }
+
+    .movies__container {
+        @include flex(row);
+        gap: 23px;
+        flex-wrap: wrap;
+        margin-top: $spacing-medium;
+    }
+
+    .movies__container .movie {
+        @include background();
+        width: 156px;
+        height: 220px;
+    }
+
+    .toggle-switch__container {
+        @include flex();
+        margin-top: $spacing-small;
+    }
+
+    .toggle-switch__container .text__label {
+        @include p-style();
+        font-size: 15px;
+        padding-left: 10px;
+    }
+
+    .notification {
+        @include flex(row, center, center);
+        width: 32px;
+        height: 32px;
+        background: rgba(105, 105, 105, 0.3);
+    }
+
+    svg {
+        fill: $primary-color;
+    }
+}

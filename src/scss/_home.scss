@@ -1,0 +1,162 @@
+@import '_variables';
+@import '_mixins';
+
+#home {
+  padding: 0;
+  background: $darkgrey;
+}
+
+#popular-movies-slider {
+  height: 250px;
+  width: 100%;
+  background: $white;
+
+  .popular-movies-slider__top {
+    padding: 24px;
+    max-width: $width-medium;
+    @include grid(139px 1fr, 179px 1fr);
+  }
+
+  .info__container {
+    @include flex();
+    align-self: flex-end;
+  }
+
+  .poster__container {
+    @include background();
+    justify-self: flex-start;
+    height: 179px;
+    width: 119px;
+  }
+
+  .positional-indicator__active,
+  .positional-indicator__inactive {
+    height: 8px;
+    width: 8px;
+  }
+
+  .positional-indicator__active {
+    @include background(url('../img/movieSlider/positional-indicator-active@3x.png'));
+  }
+
+  .positional-indicator__inactive {
+    @include background(url('../img/movieSlider/positional-indicator-inactive@3x.png'));
+  }
+
+  .label__popular-now,
+  .movie-title {
+    @include h3-style;
+  }
+
+  .label__popular-now {
+    font-size: 13px;
+    color: $darkgrey;
+  }
+
+  .movie-title {
+    line-height: 140%;
+    margin-top: 5px;
+    font-weight: bold;
+    color: $black;
+  }
+
+  .movie-tag {
+    @include h2-style;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    line-height: 19px;
+    padding: 5px 20px;
+    color: $white;
+    background: $darkgrey;
+    border-radius: 30px;
+    height: 25px;
+  }
+
+  .tags__container {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 12px;
+    row-gap: 10px;
+    margin-top: 18px;
+  }
+
+  .popular-movies-slider__bottom {
+    @include flex(row, center, center, 10px);
+  }
+}
+
+.movie-feed {
+  @include flex();
+  align-items: center;
+  padding: $spacing-small;
+
+  > * + * {
+    padding-top: $spacing-small;
+  }
+}
+
+.horizontal-scrolling-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch; /* enable touch scroll for ios devices */
+  -ms-overflow-style: none; /* hide horizontal scrollbar */
+  scrollbar-width: none;
+  max-width: $width-small;
+  padding-top: 16px;
+
+  > * + * {
+    margin-left: 16px;
+  }
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  .movie,
+  .cinemaEvent {
+    @include background();
+    flex-shrink: 0;
+    height: 175px;
+  }
+
+  .movie {
+    width: 124px;
+  }
+
+  .cinemaEvent {
+    @include flex(column, center, center);
+    text-align: center;
+    width: 208px;
+    padding: 0 16px;
+  }
+
+  .cinemaEvent span {
+    @include flex(row, center, center);
+    @include p-style();
+    font-weight: 700;
+    padding: 8px;
+    width: 140px;
+    height: 55px;
+    background: rgba(0, 0, 0, 0.7);
+  }
+}
+
+.upcoming-movies {
+  .movie {
+    @include flex(row, flex-end);
+  }
+
+  .notification {
+    @include flex(row, center, center);
+    width: 32px;
+    height: 32px;
+    background: rgba(105, 105, 105, 0.3);
+  }
+
+  svg {
+    fill: $primary-color;
+  }
+}

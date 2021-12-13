@@ -1,0 +1,46 @@
+// color
+$background-color: #333333;
+$primary-color: #FFB72B;
+$seperator-color: #6d6d6d; 
+$black: #111111;
+$white: #FFFFFF;
+$lightgrey: #EFEFEF;
+$off-white: #F7F9FB;
+$darkgrey: #333333;
+$grey: #B6B6B6;
+$altgrey: #C4C4C4;
+
+// box-shadow
+$box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+// font
+$font-stack: 'Poppins', sans-serif;
+
+// height
+$header-height: 52px;
+$footer-height: 69px;
+$height-medium: 722px;
+$height-minus-footer: calc(722px - 69px);
+$min-page-height: 653px;
+
+// width
+$width-small: 352px;
+$width-medium: 400px;
+$width-medium-minus-scrollbar: calc(400px - (100vw - 100%));
+
+// spacing
+$spacing-small: 24px;
+$spacing-medium: 36px; 
+
+// toggle-switch
+$toggle-background-color-on: $primary-color;
+$toggle-background-color-off: $grey;
+$toggle-control-color: white;
+$toggle-width: 56px;
+$toggle-height: 24px;
+$toggle-gutter: 4px;
+$toggle-radius: 50%;
+$toggle-control-speed: .15s;
+$toggle-control-ease: ease-in;
+$toggle-radius: $toggle-height / 2;
+$toggle-control-size: $toggle-height - ($toggle-gutter * 2);

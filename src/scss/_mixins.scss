@@ -1,0 +1,64 @@
+@import '_variables';
+
+@mixin animation($name, $duration, $timing-function, $iteration-count) {
+  animation: $name $duration $timing-function $iteration-count;
+}
+
+@mixin keyframes($name) {
+  @keyframes #{$name} {
+    @content;
+  }
+}
+
+@mixin background($image: url("http://via.placeholder.com/600"), $color: none, $position: center, $repeat: no-repeat, $size: cover) {
+  background-image: $image; 
+  background-color: $color; 
+  background-position: $position;
+  background-repeat: $repeat;
+  background-size: $size;
+}
+
+@mixin flex($direction: column, $justify-content: flex-start, $align-items: flex-start, $gap: 0) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify-content;
+  align-items: $align-items;
+  gap: $gap;
+}
+
+@mixin grid($template-columns: repeat(4, 25%), $template-rows: 1, $justify-items: center, $align-items: center) {
+  display: grid;
+  grid-template-rows: $template-rows;
+  grid-template-columns: $template-columns;
+  justify-items: $justify-items;
+  align-items: $align-items;
+}
+
+@mixin font-style($font-size: 15, $color: $primary-color, $font-weight: 400, $letter-spacing: normal) {
+  font-family: $font-stack;
+  font-style: normal;
+  font-size: $font-size;
+  color: $color;
+  font-weight: $font-weight;
+  letter-spacing: $letter-spacing;
+}
+
+@mixin h1-style {
+  @include font-style(17px, $off-white, 500, 0.03em);
+}
+
+@mixin h2-style {
+  @include font-style(17px, $primary-color, 500, 0.03em);
+}
+
+@mixin h3-style {
+  @include font-style(15px, $white, 500, 0.015em);
+}
+
+@mixin p-style {
+  @include font-style(13px, $white, 400, normal);
+  line-height: 150%;
+}
+
+
+

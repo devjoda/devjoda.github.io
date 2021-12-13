@@ -1,0 +1,279 @@
+@import '_variables';
+@import '_mixins';
+
+#benefits {
+  .info-message__container {
+    margin-bottom: $spacing-medium;
+  }
+
+  .user__wrapper {
+    @include flex(row, flex-start, space-between, 32px);
+    align-items: center;
+  }
+
+  .avatar__container {
+    @include flex(column, flex-start, space-between, 10px);
+    width: 94px;
+    height: 121px;
+  }
+
+  .avatar__image {
+    @include background;
+    height: 94px;
+    width: 94px;
+    border-radius: 50%;
+    border: 10px solid $primary-color;
+  }
+
+  .avatar__visits {
+    @include flex(row, flex-start, space-between, 3px);
+
+    align-items: center;
+  }
+
+  .visits-text {
+    padding-top: 3px;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: -0.005em;
+  }
+
+  .avatar__visits svg {
+    fill: $primary-color;
+    width: 17px;
+    height: 15px;
+  }
+
+  .user__wrapper .top {
+    @include flex(row, space-between, flex-start);
+  }
+
+  .title__container span {
+    display: block;
+  }
+
+  .title__container .title__rank {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 17px;
+    line-height: 25px;
+    letter-spacing: 0.025em;
+  }
+
+  .title__container .title__full-name {
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 19px;
+    letter-spacing: 0.025em;
+    color: $grey;
+  }
+
+  .user__wrapper .rank__container {
+    width: 36px;
+    height: 32px;
+  }
+
+  progress {
+    margin: 24px 0;
+  }
+
+  progress,
+  progress::-webkit-progress-bar {
+    background-color: $white;
+  }
+
+  progress,
+  progress[value] {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 16px;
+    box-shadow: none;
+    border-radius: 15px;
+  }
+
+  progress[value] {
+    border: none;
+  }
+
+  progress::-moz-progress-bar {
+    border-radius: 15px 0 0 15px;
+    background: $primary-color;
+  }
+
+  progress::-webkit-progress-value {
+    background: $primary-color;
+  }
+
+  .user__wrapper .bottom {
+    @include flex(row, space-between, center, 20px);
+  }
+
+  .badge__container {
+    @include flex(column);
+    row-gap: 6px;
+    align-items: center;
+  }
+
+  .badge__image {
+    @include background();
+    width: 43px;
+    height: 43px;
+  }
+
+  .badge__title {
+    font-weight: 600;
+    font-size: 10px;
+    line-height: 13px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: $white;
+  }
+
+  .rank__title {
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 22px;
+    letter-spacing: 0.025em;
+    color: $black;
+  }
+
+  .rank__requirements {
+    font-weight: 600;
+    font-size: 11px;
+    line-height: 16px;
+    letter-spacing: 0.025em;
+    color: #7c7c7c;
+    padding: 5px 0 9px;
+  }
+
+  .rank__image {
+    @include background();
+    width: 36px;
+    height: 32px;
+  }
+
+  .rank__wrapper {
+    @include flex(column, flex-start, center);
+    margin-top: $spacing-medium;
+    border-radius: 15px;
+    background-color: $white;
+    width: 100%;
+    height: 240px;
+  }
+
+  .overlay--disabled {
+    background-image: url('../img/pages/benefits/locked@3x.png');
+    background-repeat: no-repeat;
+    background-position: top left;
+    background-size: 39.5px;
+    opacity: 0.5;
+  }
+
+  .rank__wrapper .rank__container {
+    @include flex(column, space-between, space-between);
+    height: 100%;
+    padding: 16px;
+  }
+
+  .rank__wrapper .top {
+    @include flex(column, center, center);
+  }
+
+  .rank__wrapper .bottom {
+    @include flex(row, flex-start, flex-start, 10px);
+  }
+
+  .rank__wrapper .reward__container {
+    @include flex(row, center, flex-end);
+    @include background();
+    width: 94px;
+    height: 94px;
+    padding: 3px;
+  }
+
+  .rank__wrapper .reward__description {
+    width: 100%;
+    height: 30px;
+    font-weight: 600;
+    font-size: 11px;
+    line-height: 15px;
+    text-align: center;
+  }
+}
+
+#rank__runner {
+  .rank__image {
+    background-image: url('../img/ranks/runner@3x.png');
+  }
+
+  .bottom div:nth-child(1) {
+    background-image: url('../img/pages/benefits/rewards/discount@3x.jpg');
+  }
+  .bottom div:nth-child(2) {
+    background-image: url('../img/pages/benefits/rewards/coffee@3x.jpg');
+  }
+  .bottom div:nth-child(3) {
+    background-image: url('../img/pages/benefits/rewards/presale@3x.jpg');
+  }
+}
+
+#rank__producer {
+  .rank__image {
+    background-image: url('../img/ranks/producer@3x.png');
+  }
+  .bottom div:nth-child(1) {
+    background-image: url('../img/pages/benefits/rewards/discount@3x.jpg');
+  }
+  .bottom div:nth-child(2) {
+    background-image: url('../img/pages/benefits/rewards/coffee-and-snack@3x.jpg');
+  }
+  .bottom div:nth-child(3) {
+    background-image: url('../img/pages/benefits/rewards/surprise-showing@3x.jpg');
+  }
+}
+#rank__screenplay-writer {
+  .rank__image {
+    background-image: url('../img/ranks/screenplay-writer@3x.png');
+  }
+  .bottom div:nth-child(1) {
+    background-image: url('../img/pages/benefits/rewards/discount@3x.jpg');
+  }
+  .bottom div:nth-child(2) {
+    background-image: url('../img/pages/benefits/rewards/poster@3x.jpg');
+  }
+  .bottom div:nth-child(3) {
+    background-image: url('../img/pages/benefits/rewards/birthday-ticket@3x.jpg');
+  }
+}
+#rank__director {
+  .rank__image {
+    background-image: url('../img/ranks/director@3x.png');
+  }
+  .bottom div:nth-child(1) {
+    background-image: url('../img/pages/benefits/rewards/discount@3x.jpg');
+  }
+  .bottom div:nth-child(2) {
+    background-image: url('../img/pages/benefits/rewards/kiosk@3x.jpg');
+  }
+  .bottom div:nth-child(3) {
+    background-image: url('../img/pages/benefits/rewards/filmporten@3x.jpg');
+  }
+}
+#rank__movie-star {
+  .rank__image {
+    width: 73px;
+    height: 35px;
+    background-image: url('../img/ranks/movie-star@3x.png');
+  }
+  .bottom div:nth-child(1) {
+    background-image: url('../img/pages/benefits/rewards/discount@3x.jpg');
+  }
+  .bottom div:nth-child(2) {
+    background-image: url('../img/pages/benefits/rewards/kiosk@3x.jpg');
+  }
+  .bottom div:nth-child(3) {
+    background-image: url('../img/pages/benefits/rewards/bring-a-friend@3x.jpg');
+  }
+}

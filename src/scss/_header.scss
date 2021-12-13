@@ -1,0 +1,27 @@
+@import '_variables';
+@import '_mixins';
+
+.main-header {
+  @include grid(repeat(3, 1fr), 1);
+  padding: 0 24px;
+  background: $black;
+  box-shadow: $box-shadow;
+  height: $header-height;
+  width: 100%;
+  z-index: 999;
+  
+  :first-child {
+    justify-self: flex-start;
+  }
+  .logo__container {
+    @include background(url('../img/header/logo-white@3x.png'));
+    height: 24px;
+    width: 55.5px;
+    background-color: $black;
+  }
+
+  nav {
+    gap: 8px;
+    justify-self: flex-end;
+  }
+}

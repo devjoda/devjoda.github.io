@@ -1,0 +1,38 @@
+@import '_variables';
+@import '_mixins';
+
+.main-footer {
+  // top: 722px;
+  background: $off-white;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  width: 100%;
+  height: $footer-height;
+  border-top: 1px solid $lightgrey;
+
+  nav {
+    @include grid;
+  }
+
+  a {
+    width: 69px;
+    border-top: 3px solid $off-white;
+    @include font-style(11px, $darkgrey, 500, normal);
+    @include flex(column, center, center, 3px);
+  }
+
+  a.active {
+      border-top: 3px solid black;
+      color: black;
+  }
+
+  svg {
+    width: 16px;
+    height: 100%;
+    padding-top: 3px;
+    fill: $darkgrey;
+  }
+
+  a.active svg {
+    fill: black;
+  }
+}

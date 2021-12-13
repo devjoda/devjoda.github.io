@@ -1,0 +1,138 @@
+@import '_variables';
+@import '_mixins';
+@import '_animations';
+@import '_spinner';
+@import '_header';
+@import '_footer';
+@import '_home';
+@import '_notifications';
+@import '_benefits';
+@import '_tickets';
+@import '_movie-details';
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body,
+main {
+  overflow-y: scroll;
+  max-height: $height-medium;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  font-family: $font-stack;
+  background: $background-color;
+  color: $white;
+  margin: 0;
+  background: $white;
+}
+
+main {
+  flex: 1 0 auto;
+  background: $darkgrey;
+  min-width: $width-medium;
+}
+
+.main-header,
+.main-footer {
+  flex-shrink: 0;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  @include h1-style;
+}
+
+h2 {
+  @include h2-style;
+}
+
+h3 {
+  @include h3-style;
+}
+
+p {
+  @include p-style;
+}
+
+a {
+  color: white;
+  text-decoration: inherit;
+}
+
+#pages {
+  box-shadow: $box-shadow;
+}
+
+.page {
+  @include fade-in;
+  min-height: $min-page-height;
+  padding: $spacing-small $spacing-small;
+}
+
+.seperator {
+  margin-top: $spacing-small;
+  border-bottom: 1px solid $seperator-color;
+}
+
+.info-message__container {
+  @include flex(row, center, center);
+  column-gap: 22px;
+  background: $white;
+  border-radius: 15px;
+  padding: 22px;
+
+  p {
+    color: $black;
+  }
+
+  svg {
+    flex-shrink: 0;
+  }
+}
+
+@media only screen and (min-width: $width-medium) {
+  body {
+    align-items: center;
+  }
+
+  #pages {
+    margin: 0 auto;
+    max-width: $width-medium-minus-scrollbar;
+    max-height: $height-minus-footer;
+    section {
+      // subtract scrollbar width
+      max-width: $width-medium;
+    }
+  }
+
+  .main-header,
+  .main-footer {
+    max-width: $width-medium;
+  }
+}
