@@ -21,10 +21,6 @@
     background: $primary-color;
   }
 
-  #firebaseui-auth-container div:first-child {
-    background: $lightgrey;
-  }
-  
   #firebaseui-auth-container {
     width: 100%;
   }
@@ -32,4 +28,52 @@
   .login__skip {
     color: $primary-color;
   }
+}
+
+.firebaseui-container {
+  font: 16px $font-stack;
+  background-color: rgba(255, 255, 255, 0.7);
+  margin-top: 24px;
+  margin-bottom: 24px;
+  border-radius: 5px;
+}
+
+.mdl-textfield--floating-label {
+  font-family: $font-stack;
+}
+
+.firebaseui-form-actions {
+  text-align: center;
+}
+
+.firebaseui-title {
+  text-align: center;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  display: none;
+}
+
+.firebaseui-card-header {
+  border-bottom: none;
+  display: none;
+}
+
+.mdl-card {
+  min-height: auto;
+  padding-top: 24px;
+}
+
+.mdl-button--raised.mdl-button--colored,
+.mdl-button--raised.mdl-button--colored:active,
+.mdl-button--raised.mdl-button--colored:hover {
+  background: $yellow;
+  color: $black;
+  border-radius: 5px;
+  text-align: center;
+  font-family: $font-stack;
+}
+
+.mdl-textfield__label .firebaseui-label {
+  font-family: $font-stack;
 }

@@ -24,7 +24,7 @@ export default class PageLogin {
       <div class="login__wrapper">
         <h1 class="login-title">Velkommen til Øst for Paradis</h1>
         <section id="firebaseui-auth-container"></section>
-        <div><a href="#/home" class="login__skip">Forsæt som gæst</a></span></div>
+        <div><a href="#/home" class="login__skip">Fortsæt som gæst</a></span></div>
         <img src="./src/img/login/logo-white@3x.png" alt="Øst for Paradis logo ">
       </div>
     </section>

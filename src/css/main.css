@@ -1034,13 +1034,53 @@
   background: #FFB72B;
 }
 #login #firebaseui-auth-container div:first-child {
-  background: #EFEFEF;
+  background: #B6B6B6;
 }
 #login #firebaseui-auth-container {
   width: 100%;
 }
 #login .login__skip {
   color: #FFB72B;
+}
+
+.firebaseui-container {
+  font-size: 16px;
+  background-color: rgba(255, 255, 255, 0.7);
+  margin-top: 24px;
+  margin-bottom: 24px;
+  border-radius: 5px;
+}
+
+.firebaseui-form-actions {
+  text-align: center;
+}
+
+.firebaseui-title {
+  text-align: center;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  display: none;
+}
+
+.firebaseui-card-header {
+  border-bottom: none;
+  display: none;
+}
+
+.mdl-card {
+  min-height: auto;
+  padding-top: 24px;
+}
+
+.mdl-button--raised.mdl-button--colored,
+.mdl-button--raised.mdl-button--colored:active,
+.mdl-button--raised.mdl-button--colored:hover {
+  background: var(--yellow);
+  color: var(--black);
+  border-radius: 5px;
+  text-align: center;
+  font-family: var(--font-family);
 }
 
 html {
