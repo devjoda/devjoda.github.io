@@ -1,3 +1,185 @@
 @import '_variables';
 @import '_mixins';
 
+#movie-details {
+  padding: 0;
+
+  .details__hero {
+    @include flex(row, center, center);
+    @include background();
+    height: 250px;
+    width: 100%;
+  }
+
+  .hero__play-icon {
+    @include background(url('../img/pages/movie-details/play-icon@3px.png'));
+    height: 58px;
+    width: 58px;
+  }
+
+  .details__person-wrapper {
+    @include flex(column, center, center, 8px);
+  }
+
+  h3.details__actors-title {
+    margin-top: $spacing-small;
+    border-top: 1px solid $seperator-color;
+  }
+
+}
+
+.details__movie-poster {
+  @include background();
+  width: 148px;
+  height: 207px;
+  border: 1px solid #727272;
+  box-sizing: border-box; 
+  box-shadow: 5px 6px 4px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 8px 8px 4px 4px;
+  transform: translate(105px, 123px);
+  @include fade-in-slow();
+}
+
+#movie-details .details__wrapper {
+  padding: 0 24px 24px 24px;
+
+  .details__title {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 36px;
+    letter-spacing: 0.03em;
+    color: $white;
+  }
+
+  .details__keywords {
+    margin-top: $spacing-small;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 24px;
+    color: $grey;
+  }
+
+  .details__keyword-list > * + *::before {
+    content: '•';
+    padding-right: 6px;
+  }
+
+  .details__keyword-list {
+    @include flex('row', flex-start, center, 6px);
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .details__tags {
+    display: inline-flex;
+    column-gap: 10px;
+    margin-top: $spacing-small;
+  }
+  .details__tag {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 18px;
+    background: $white;
+    border-radius: 30px;
+    color: $darkgrey;
+    letter-spacing: 0.03em;
+    padding: 1px 10px;
+  }
+
+  .details__description-wrapper {
+    margin-top: $spacing-small;
+    padding-top: $spacing-small;
+    border-top: 1px solid $seperator-color;
+    font-size: 13px;
+    line-height: 150%;
+  }
+
+  .details__description-wrapper .img-container {
+    margin-top: 16px;
+    height: 100%;
+    width: calc(100vw - (100vw - 100%));
+  }
+
+  .details__description-wrapper .img-container img {
+    height: 100%;
+    width: 100%;
+  }
+
+  .details__description-wrapper > * + * {
+    margin-top: 16px;
+  }
+
+  .details__description-wrapper :last-child {
+    margin-bottom: 16px;
+  }
+
+  .details__description-state-toggle {
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 19px;
+    letter-spacing: 0.025em;
+    color: $primary-color;
+  }
+}
+.details__booking-button {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 600px;
+  left: 284px;
+  padding: 20px;
+  background: $primary-color;
+  border-radius: 6px;
+  padding: 10px 12px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  letter-spacing: 0.03em;
+  color: $black;
+}
+
+#movie-details .details__container.people {
+  h3 {
+    padding-top: $spacing-small;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 22px;
+    letter-spacing: 0.03em;
+  }
+}
+
+#movie-details .details__container.people .horizontal-scrolling-wrapper {
+  @include flex(row, flex-start, center);
+  column-gap: 30px;
+  align-items: center;
+  margin-top: 15px;
+  padding: 0;
+
+  .details__person-img {
+    background-position: center top 7%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 117px;
+    width: 117px;
+    border-radius: 58.5px;
+  }
+
+  .details__person-text-1 {
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 100%;
+    color: $white;
+  }
+  .details__person-text-2 {
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 100%;
+    color: $grey;
+  }
+
+  .details__person-text-1,
+  .details__person-text-2 {
+    text-align: center;
+  }
+}

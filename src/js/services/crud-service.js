@@ -19,6 +19,7 @@ import CinemaEvent from '../components/cinemaEvent.js';
 import Badge from '../components/badge.js';
 import Firebase from '../components/firebase.js';
 import PageMovieDetails from '../pages/movie-details.js';
+import PageBooking from '../pages/booking.js';
 
 /**
  * @description service methods for creating, reading, updating and deleting objects
@@ -77,6 +78,7 @@ export default class CrudService {
     const tickets = new PageTickets(main);
     const movieDetails = new PageMovieDetails(main);
     const search = new PageSearch(main);
+    const booking = new PageBooking(main);
     // bind pages to storage
     const pages = [spinner, login, home, notifications, benefits, tickets, movieDetails, search];
     StorageService.storage.pages = pages;

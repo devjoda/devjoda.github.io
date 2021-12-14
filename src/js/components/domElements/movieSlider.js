@@ -1,3 +1,5 @@
+import StorageService from "../../services/storage-service.js";
+
 /**
  * @description movieSlider component
  * @export
@@ -8,6 +10,7 @@ export default class MovieSlider {
     this._domElement = domElement;
     this._movies;
     this._currentIndex = 0;
+    this._altGikGodtUid = null;
     this.init();
   }
 
@@ -38,6 +41,15 @@ export default class MovieSlider {
     this._currentIndex = value;
   }
 
+  // altGikGodtUid
+  get altGikGodtUid() {
+    return this._altGikGodtUid;
+  }
+
+  set altGikGodtUid(value) {
+    this._altGikGodtUid = value;
+  }
+
   init() {
     this._domElement.innerHTML += /*html*/ `
     <header id="popular-movies-slider">
@@ -57,10 +69,15 @@ export default class MovieSlider {
 
   append(index) {
     this._currentIndex = index;
-    let currentMovie = this._movies[this._currentIndex];
+    const currentMovie = this._movies[this._currentIndex];
+    const currentMovieUid = currentMovie.uid;
     // set poster image
     const posterDomElement = document.querySelector('#popular-movies-slider .poster__container');
     posterDomElement.style.backgroundImage = `url(${currentMovie.posterImagePath})`;
+    // set uid data attribute
+    posterDomElement.setAttribute('data-movie-uid', currentMovieUid);
+    // attach event handler
+    this.handleOnClickAltGikGodt(currentMovieUid, posterDomElement);
     // set title
     const titleDomElement = document.querySelector('#popular-movies-slider .movie-title');
     titleDomElement.innerText = currentMovie.title;
@@ -105,13 +122,9 @@ export default class MovieSlider {
       if (location.hash !== locationHash) {
         clearInterval(interval);
       }
-      this.incrementCurrentIndex();
       this.append(this._currentIndex);
+      this.incrementCurrentIndex();
     }, 4000);
-  }
-
-  sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
   }
 
   stopSlideInterval(interval) {
@@ -119,12 +132,22 @@ export default class MovieSlider {
   }
 
   incrementCurrentIndex() {
-    const treshold = this._movies.length; 
+    const treshold = this._movies.length;
     if (this._currentIndex + 1 === treshold) {
       this._currentIndex = 0;
     } else {
       this._currentIndex++;
     }
     return this._currentIndex;
+  }
+
+  handleOnClickAltGikGodt(currentMovieUid, posterDomElement) {
+    if (this._altGikGodtUid) {
+      if (this._altGikGodtUid === currentMovieUid) {
+        posterDomElement.addEventListener('click', () => {
+          StorageService.storage.router.navigateTo(`#/movie-details=${currentMovieUid}`);
+        });
+      }
+    }
   }
 }

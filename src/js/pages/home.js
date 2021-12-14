@@ -1,6 +1,7 @@
 import MovieSlider from '../components/domElements/movieSlider.js';
+import StorageService from "../services/storage-service.js"
 
-/**
+/*
  * @description homepage
  * @export
  * @class PageHome
@@ -61,6 +62,8 @@ export default class PageHome {
     this._currentUser = currentUser;
     this.appendMovieSlider(index, movies.slice(0, 5));
     this.appendMovieFeed(movies, cinemaEvents);
+    this.handleOnClickAltGikGodt(movies[1]);
+    this._movieSlider.startSlideInterval();
   }
 
   appendMovieSlider(index, movies) {
@@ -107,6 +110,7 @@ export default class PageHome {
       const movieContainer = document.createElement('div');
       movieContainer.style.backgroundImage = `url('${movie.posterImagePath}')`;
       movieContainer.classList.add('movie');
+      movieContainer.setAttribute('data-movie-uid', movie.uid);
       domElement.appendChild(movieContainer);
     }
   }
@@ -197,5 +201,21 @@ export default class PageHome {
     }
     this._currentUser.notifications = newNotifications;
     // this._currentUser.notifications.forEach((element) => console.log(element.title));
+  }
+
+  handleOnClickAltGikGodt(altGikGodtMovie) {
+    try {
+      const altGikGodtUid = altGikGodtMovie.uid;
+      this._movieSlider.altGikGodtUid = altGikGodtUid;
+      const altGikGodtDomElements = document.querySelectorAll(`[data-movie-uid="${altGikGodtUid}"]`);
+      for (const altGikGodtDomElement of altGikGodtDomElements) {
+        altGikGodtDomElement.addEventListener('click', () => {
+          StorageService.storage.router.navigateTo(`#/movie-details=${altGikGodtUid}`);
+        });
+      }
+    }
+    catch(err) {
+      console.log(err);
+    }
   }
 }

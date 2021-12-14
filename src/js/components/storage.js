@@ -142,11 +142,11 @@ export default class Storage {
   }
 
   findCrewMemberWithFullName(fullName) {
-    return this._crew.find((element) => element.getFullName().localeCompare(fullName));
+    return this._crew.find((element) => element.getFullName().localeCompare(fullName) === 0);
   }
 
   findCastMemberWithFullName(fullName) {
-    return this._cast.find((element) => element.getFullName().localeCompare(fullName));
+    return this._cast.find((element) => element.getFullName().localeCompare(fullName) === 0);
   }
 
   findMovieWithUid(uid) {

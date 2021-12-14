@@ -23,12 +23,12 @@ export default class Movie {
     this._backdropImagePath = backdropImagePath ?? null;
     this._rating = rating ?? null;
     this._duration = duration ?? null;
-    this._tags = tags ?? null;
+    this._tags = tags ?? [];
     this._description = description ?? null;
-    this._actors = actors ?? null;
-    this._directors = directors ?? null;
-    this._producers = producers ?? null;
-    this._screenplayWriters = screenplayWriters ?? null;
+    this._actors = actors ?? [];
+    this._directors = directors ?? [];
+    this._producers = producers ?? [];
+    this._screenplayWriters = screenplayWriters ?? [];
     this._isShowing = isShowing ?? null;
     // define a globally unique identifier property
     Object.defineProperty(this, 'uid', {

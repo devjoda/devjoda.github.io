@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .spinner {
   position: relative;
   width: 100%;
@@ -590,6 +591,9 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 #benefits .avatar__container {
   display: -webkit-box;
@@ -650,6 +654,9 @@
   fill: #FFB72B;
   width: 17px;
   height: 15px;
+}
+#benefits .user__container-right {
+  width: 225px;
 }
 #benefits .user__wrapper .top {
   display: -webkit-box;
@@ -996,6 +1003,264 @@
   margin-top: 36px;
 }
 
+#movie-details {
+  padding: 0;
+}
+#movie-details .details__hero {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0;
+  background-image: url("http://via.placeholder.com/600");
+  background-color: none;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 250px;
+  width: 100%;
+}
+#movie-details .hero__play-icon {
+  background-image: url("../img/pages/movie-details/play-icon@3px.png");
+  background-color: none;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 58px;
+  width: 58px;
+}
+#movie-details .details__person-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 8px;
+}
+#movie-details h3.details__actors-title {
+  margin-top: 24px;
+  border-top: 1px solid #6d6d6d;
+}
+
+.details__movie-poster {
+  background-image: url("http://via.placeholder.com/600");
+  background-color: none;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 148px;
+  height: 207px;
+  border: 1px solid #727272;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-box-shadow: 5px 6px 4px 4px rgba(0, 0, 0, 0.2);
+          box-shadow: 5px 6px 4px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 8px 8px 4px 4px;
+  -webkit-transform: translate(105px, 123px);
+          transform: translate(105px, 123px);
+  -webkit-animation: fade-in-slow 1s linear 1;
+          animation: fade-in-slow 1s linear 1;
+}
+@-webkit-keyframes fade-in-slow {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fade-in-slow {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+#movie-details .details__wrapper {
+  padding: 0 24px 24px 24px;
+}
+#movie-details .details__wrapper .details__title {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 36px;
+  letter-spacing: 0.03em;
+  color: #FFFFFF;
+}
+#movie-details .details__wrapper .details__keywords {
+  margin-top: 24px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  color: #B6B6B6;
+}
+#movie-details .details__wrapper .details__keyword-list > * + *::before {
+  content: "•";
+  padding-right: 6px;
+}
+#movie-details .details__wrapper .details__keyword-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: "row";
+          flex-direction: "row";
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 6px;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+#movie-details .details__wrapper .details__tags {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-column-gap: 10px;
+     -moz-column-gap: 10px;
+          column-gap: 10px;
+  margin-top: 24px;
+}
+#movie-details .details__wrapper .details__tag {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 18px;
+  background: #FFFFFF;
+  border-radius: 30px;
+  color: #333333;
+  letter-spacing: 0.03em;
+  padding: 1px 10px;
+}
+#movie-details .details__wrapper .details__description-wrapper {
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid #6d6d6d;
+  font-size: 13px;
+  line-height: 150%;
+}
+#movie-details .details__wrapper .details__description-wrapper .img-container {
+  margin-top: 16px;
+  height: 100%;
+  width: calc(100vw - (100vw - 100%));
+}
+#movie-details .details__wrapper .details__description-wrapper .img-container img {
+  height: 100%;
+  width: 100%;
+}
+#movie-details .details__wrapper .details__description-wrapper > * + * {
+  margin-top: 16px;
+}
+#movie-details .details__wrapper .details__description-wrapper :last-child {
+  margin-bottom: 16px;
+}
+#movie-details .details__wrapper .details__description-state-toggle {
+  font-weight: bold;
+  font-size: 13px;
+  line-height: 19px;
+  letter-spacing: 0.025em;
+  color: #FFB72B;
+}
+
+.details__booking-button {
+  position: sticky;
+  top: 600px;
+  left: 284px;
+  padding: 20px;
+  background: #FFB72B;
+  border-radius: 6px;
+  padding: 10px 12px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  letter-spacing: 0.03em;
+  color: #111111;
+}
+
+#movie-details .details__container.people h3 {
+  padding-top: 24px;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 22px;
+  letter-spacing: 0.03em;
+}
+
+#movie-details .details__container.people .horizontal-scrolling-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0;
+  -webkit-column-gap: 30px;
+     -moz-column-gap: 30px;
+          column-gap: 30px;
+  align-items: center;
+  margin-top: 15px;
+  padding: 0;
+}
+#movie-details .details__container.people .horizontal-scrolling-wrapper .details__person-img {
+  background-position: center top 7%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 117px;
+  width: 117px;
+  border-radius: 58.5px;
+}
+#movie-details .details__container.people .horizontal-scrolling-wrapper .details__person-text-1 {
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 100%;
+  color: #FFFFFF;
+}
+#movie-details .details__container.people .horizontal-scrolling-wrapper .details__person-text-2 {
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 100%;
+  color: #B6B6B6;
+}
+#movie-details .details__container.people .horizontal-scrolling-wrapper .details__person-text-1,
+#movie-details .details__container.people .horizontal-scrolling-wrapper .details__person-text-2 {
+  text-align: center;
+}
+
 #login {
   overflow-y: hidden;
 }
@@ -1007,7 +1272,6 @@
   font-weight: 500;
   letter-spacing: 0.03em;
   color: #FFB72B;
-  margin-bottom: 24px;
   font-size: 21px;
 }
 #login .login__wrapper {
@@ -1033,9 +1297,6 @@
 #login .mdl-button--raised.mdl-button--colored {
   background: #FFB72B;
 }
-#login #firebaseui-auth-container div:first-child {
-  background: #B6B6B6;
-}
 #login #firebaseui-auth-container {
   width: 100%;
 }
@@ -1044,11 +1305,15 @@
 }
 
 .firebaseui-container {
-  font-size: 16px;
+  font: 16px "Poppins", sans-serif;
   background-color: rgba(255, 255, 255, 0.7);
   margin-top: 24px;
   margin-bottom: 24px;
   border-radius: 5px;
+}
+
+.mdl-textfield--floating-label {
+  font-family: "Poppins", sans-serif;
 }
 
 .firebaseui-form-actions {
@@ -1076,11 +1341,15 @@
 .mdl-button--raised.mdl-button--colored,
 .mdl-button--raised.mdl-button--colored:active,
 .mdl-button--raised.mdl-button--colored:hover {
-  background: var(--yellow);
-  color: var(--black);
+  background: #FFB72B;
+  color: #111111;
   border-radius: 5px;
   text-align: center;
-  font-family: var(--font-family);
+  font-family: "Poppins", sans-serif;
+}
+
+.mdl-textfield__label .firebaseui-label {
+  font-family: "Poppins", sans-serif;
 }
 
 html {

@@ -21,6 +21,7 @@ export default class Router {
       '#/create-profile': 'create-profile',
       '#/login': 'login',
       '#/movie-details': 'movie-details',
+      '#/booking': 'booking',
     };
     this.init();
   }
@@ -57,7 +58,10 @@ export default class Router {
     const routeValue = `${this.routes[path]}`;
     // handle special cases
     this.handleSpecialCaseNotLogin(routeValue);
-    this.handleSpecialCaseMovieDetails(routeValue);
+    let result = await this.handleSpecialCaseMovieDetails(path);
+    if (result === true) {
+      return;
+    }
     switch (routeValue) {
       case 'login':
         this.hideHeader();
@@ -72,7 +76,6 @@ export default class Router {
         const movies = StorageService.storage.movies;
         const cinemaEvents = StorageService.storage.cinemaEvents;
         pageHome.appendHome(0, movies, cinemaEvents, StorageService.storage.currentUser);
-        pageHome.movieSlider.startSlideInterval();
         break;
       case 'notifications':
         // update header title
@@ -103,13 +106,18 @@ export default class Router {
         pageTickets.appendTickets(StorageService.storage.currentUser);
         break;
     }
-    this.hideLoader();
     try {
+      this.hideLoader();
       document.querySelector(`#${routeValue}`).style.display = 'block'; // show page by given path
-    } catch {
-      this.navigateTo('#/home');
+      if (routeValue.localeCompare('booking') === 0 || routeValue.localeCompare('search') === 0) {
+        this.setActiveTab('#/home');
+      } else {
+        this.setActiveTab(path);
+      }
     }
-    this.setActiveTab(path);
+    catch(err) {
+      console.log(err);
+    }
   }
 
   // hide all pages
@@ -163,15 +171,22 @@ export default class Router {
     }
   }
 
-  async handleSpecialCaseMovieDetails(routeValue) {
-    if (routeValue.substring(0, 13) === 'movie-details') {
-      console.log(routeValue.substring(13));
+  async handleSpecialCaseMovieDetails(path) {
+    const newPath = path.substring(0, 15);
+    if (newPath.localeCompare('#/movie-details') === 0) {
+      this.hideAllPages();
+      const movieUid = path.substring(16, 25);
       // update header title
-      StorageService.storage?.header?.updateTitle('Filmdetaljer');
-      const movie = await this.waitForCondition(StorageService?.storage?.movies);
+      await this.waitForCondition(StorageService?.storage?.movies);
+      const targetMovie = StorageService.storage.findMovieWithUid(movieUid);
+      StorageService.storage?.header?.updateTitle(`${targetMovie.title}`);
       // append movie to dom
       const pageMovieDetails = StorageService.storage.findPageWithConstructorName('PageMovieDetails');
-      pageMovieDetails.appendMovieDetails();
+      pageMovieDetails.appendMovieDetails(StorageService.storage.currentUser, targetMovie);
+      this.hideLoader();
+      document.querySelector('#movie-details').style.display = 'block';
+      this.setActiveTab('#/home');
+      return true;
     }
     return false;
   }

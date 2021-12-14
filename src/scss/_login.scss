@@ -7,7 +7,6 @@
   .login-title {
     @include h1-style();
     color: $primary-color;
-    margin-bottom: 24px;
     font-size: 21px;
   }
 
@@ -67,7 +66,7 @@
 .mdl-button--raised.mdl-button--colored,
 .mdl-button--raised.mdl-button--colored:active,
 .mdl-button--raised.mdl-button--colored:hover {
-  background: $yellow;
+  background: $primary-color;
   color: $black;
   border-radius: 5px;
   text-align: center;

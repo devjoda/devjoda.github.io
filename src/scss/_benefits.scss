@@ -9,6 +9,7 @@
   .user__wrapper {
     @include flex(row, flex-start, space-between, 32px);
     align-items: center;
+    justify-content: space-between;
   }
 
   .avatar__container {
@@ -43,6 +44,10 @@
     fill: $primary-color;
     width: 17px;
     height: 15px;
+  }
+
+  .user__container-right {
+    width: 225px;
   }
 
   .user__wrapper .top {
