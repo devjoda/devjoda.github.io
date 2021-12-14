@@ -1,0 +1,23 @@
+@import '_variables';
+@import '_mixins';
+
+#login {
+    overflow-y: hidden;
+    .login__wrapper {
+    @include flex(column, center, center, 24px);
+    column-gap: 10px;
+    margin-top: 50%;
+    }
+
+    .mdl-button--raised.mdl-button--colored {
+        background: $primary-color;
+    }
+
+    #firebaseui-auth-container {
+        width: 100%;
+    }
+
+    .login__skip {
+        color: $primary-color;
+    }
+}

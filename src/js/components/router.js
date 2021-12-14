@@ -7,19 +7,19 @@ import StorageService from '../services/storage-service.js';
  */
 export default class Router {
   constructor() {
-    this.defaultPage = '#/home';
+    this.defaultPage = '#/login';
     this.basePath = location.pathname.replace('index.html', ''); // remove index.html from path
     this.pages = document.querySelectorAll('.page');
     this.navItems = document.body.querySelectorAll('.nav-link');
     this.routes = {
-      '#/': 'spinner',
+      '#/': 'home',
       '#/home': 'home',
       '#/notifications': 'notifications',
       '#/benefits': 'benefits',
       '#/tickets': 'tickets',
       '#/search': 'search',
-      // '#/profile': 'profile',
-      // '#/login': 'login',
+      '#/create-profile': 'create-profile',
+      '#/login': 'login',
     };
     this.init();
   }
@@ -52,10 +52,16 @@ export default class Router {
 
   // handles page rendering
   async showPage(path) {
-    this.hideAllPages(); // hide all pages
     this.showLoader();
     const routeValue = `${this.routes[path]}`;
+    if (routeValue !== 'login' || routeValue === 'create-profile') {
+      this.showHeader();
+      this.showFooter();
+    }
     switch (routeValue) {
+      case 'login':
+        this.hideHeader();
+        this.hideFooter();
       case 'home':
         // update header title
         StorageService.storage?.header?.updateTitle('Hjem');
@@ -98,7 +104,12 @@ export default class Router {
         break;
     }
     this.hideLoader();
-    document.querySelector(`#${routeValue}`).style.display = 'block'; // show page by given path
+    try {
+      document.querySelector(`#${routeValue}`).style.display = 'block'; // show page by given path
+    }
+    catch {
+      this.navigateTo('#/home');
+    }
     this.setActiveTab(path);
   }
 
@@ -111,6 +122,7 @@ export default class Router {
 
   // show loader
   showLoader() {
+    this.hideAllPages();
     this.pages[0].style.display = 'block';
   }
 
@@ -127,6 +139,22 @@ export default class Router {
         link.classList.remove('active');
       }
     }
+  }
+
+  showHeader() {
+    document.querySelector('.main-header').style.display = 'grid';
+  }
+
+  hideHeader() {
+    document.querySelector('.main-header').style.display = 'none';
+  }
+
+  showFooter() {
+    document.querySelector('.main-footer').style.display = 'block';
+  }
+
+  hideFooter() {
+    document.querySelector('.main-footer').style.display = 'none';
   }
 
   // waits for condition to be met before resolving

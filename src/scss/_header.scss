@@ -9,7 +9,7 @@
   height: $header-height;
   width: 100%;
   z-index: 999;
-  
+
   :first-child {
     justify-self: flex-start;
   }
@@ -24,4 +24,9 @@
     gap: 8px;
     justify-self: flex-end;
   }
+
+  svg {
+    cursor: pointer;
+  }
 }
+

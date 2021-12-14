@@ -9,6 +9,7 @@ window.addEventListener('DOMContentLoaded', async () => {
   // initialize crud service
   CrudService.init();
   window.s = StorageService.storage;
+  window.c = CrudService;
 
   // create badges
   const badge1 = CrudService.createBadge('Founder', './src/img/badges/founder@3x.png');

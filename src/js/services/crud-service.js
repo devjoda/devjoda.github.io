@@ -1,5 +1,6 @@
 import Header from '../components/domElements/header.js';
 import Footer from '../components/domElements/footer.js';
+import PageLogin from '../pages/login.js';
 import PageHome from '../pages/home.js';
 import PageNotifications from '../pages/notifications.js';
 import PageBenefits from '../pages/benefits.js';
@@ -16,6 +17,7 @@ import CrewMember from '../components/crewMember.js';
 import Movie from '../components/movie.js';
 import CinemaEvent from '../components/cinemaEvent.js';
 import Badge from '../components/badge.js';
+import Firebase from '../components/firebase.js';
 
 /**
  * @description service methods for creating, reading, updating and deleting objects
@@ -31,6 +33,7 @@ export default class CrudService {
     this.createPages();
     this.createFooter();
     this.createRouter();
+    this.createFirebase();
   }
 
   static createStorage() {
@@ -66,13 +69,14 @@ export default class CrudService {
     document.body.appendChild(main);
     // create pages
     const spinner = new PageSpinner(main);
+    const login = new PageLogin(main);
     const home = new PageHome(main);
     const notifications = new PageNotifications(main);
     const benefits = new PageBenefits(main);
     const tickets = new PageTickets(main);
     const search = new PageSearch(main);
     // bind pages to storage
-    const pages = [spinner, home, notifications, benefits, tickets, search];
+    const pages = [spinner, login, home, notifications, benefits, tickets, search];
     StorageService.storage.pages = pages;
     // print verbose
     this.printVerboseMessage('[Created Pages]', '#000000', '#FFB72B');
@@ -85,6 +89,14 @@ export default class CrudService {
     // print verbose
     this.printVerboseMessage('[Created Router]', '#000000', '#FFB72B');
     return router;
+  }
+
+  static createFirebase() {
+    const firebase = new Firebase();
+    StorageService.storage.firebase = firebase;
+    // print verbose
+    this.printVerboseMessage('[Created Firebase]', '#000000', '#FFB72B');
+    return firebase;
   }
 
   static createUser(firstName, lastName, imageSource, gender, username, badges, email, phone, birthDate, tickets, notifications, isNotifyBySMS, isNotifyByEmail, isInfoMessageDismissed) {
@@ -176,7 +188,7 @@ export default class CrudService {
     this.printVerboseMessage('[Created Ticket]', '#000000', '#FFB72B');
     return ticket;
   }
-  
+
   static createBadge(title, imageSource) {
     // create badge
     const badge = new Badge(title, imageSource);

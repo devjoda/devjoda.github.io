@@ -4,7 +4,7 @@
  * @class StorageService
  */
 export default class Storage {
-  constructor(router, pages, header, footer, currentUser, users, crew, cast, movies, cinemaEvents, tickets, badges) {
+  constructor(router, pages, header, footer, currentUser, users, crew, cast, movies, cinemaEvents, tickets, badges, firebase) {
     this.router = router ?? null;
     this._pages = pages ?? [];
     this._header = header ?? null;
@@ -17,6 +17,7 @@ export default class Storage {
     this._cinemaEvents = cinemaEvents ?? [];
     this._tickets = tickets ?? [];
     this._badges = badges ?? [];
+    this._firebase = firebase ?? null;
   }
 
   // router
@@ -125,6 +126,15 @@ export default class Storage {
 
   set badges(value) {
     this._badges = value;
+  }
+
+  // firebase
+  get firebase() {
+    return this._firebase;
+  }
+  
+  set firebase(value) {
+    this._firebase = value;
   }
 
   findUserWithEmail(email) {
