@@ -999,6 +999,17 @@
 #login {
   overflow-y: hidden;
 }
+#login .login-title {
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-size: 17px;
+  color: #F7F9FB;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  color: #FFB72B;
+  margin-bottom: 24px;
+  font-size: 21px;
+}
 #login .login__wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1017,10 +1028,13 @@
   -webkit-column-gap: 10px;
      -moz-column-gap: 10px;
           column-gap: 10px;
-  margin-top: 50%;
+  margin-top: 24px;
 }
 #login .mdl-button--raised.mdl-button--colored {
   background: #FFB72B;
+}
+#login #firebaseui-auth-container div:first-child {
+  background: #EFEFEF;
 }
 #login #firebaseui-auth-container {
   width: 100%;

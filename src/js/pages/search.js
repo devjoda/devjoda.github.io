@@ -1,7 +1,7 @@
 /**
  * @description search page
  * @export
- * @class Search
+ * @class PageSearch
  */
 export default class PageSearch {
   constructor(domElement) {

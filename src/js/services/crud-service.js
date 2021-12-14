@@ -18,6 +18,7 @@ import Movie from '../components/movie.js';
 import CinemaEvent from '../components/cinemaEvent.js';
 import Badge from '../components/badge.js';
 import Firebase from '../components/firebase.js';
+import PageMovieDetails from '../pages/movie-details.js';
 
 /**
  * @description service methods for creating, reading, updating and deleting objects
@@ -74,9 +75,10 @@ export default class CrudService {
     const notifications = new PageNotifications(main);
     const benefits = new PageBenefits(main);
     const tickets = new PageTickets(main);
+    const movieDetails = new PageMovieDetails(main);
     const search = new PageSearch(main);
     // bind pages to storage
-    const pages = [spinner, login, home, notifications, benefits, tickets, search];
+    const pages = [spinner, login, home, notifications, benefits, tickets, movieDetails, search];
     StorageService.storage.pages = pages;
     // print verbose
     this.printVerboseMessage('[Created Pages]', '#000000', '#FFB72B');

@@ -1,7 +1,7 @@
 /**
  * @description benefits page
  * @export
- * @class Benefits
+ * @class PageBenefits
  */
 export default class PageBenefits {
   constructor(domElement) {

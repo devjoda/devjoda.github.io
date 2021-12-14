@@ -1,7 +1,7 @@
 /**
  * @description spinner page
  * @export
- * @class Spinner
+ * @class PageSpinner
  */
 export default class PageSpinner {
   constructor(domElement) {

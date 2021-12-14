@@ -20,6 +20,7 @@ export default class Router {
       '#/search': 'search',
       '#/create-profile': 'create-profile',
       '#/login': 'login',
+      '#/movie-details': 'movie-details',
     };
     this.init();
   }
@@ -54,10 +55,9 @@ export default class Router {
   async showPage(path) {
     this.showLoader();
     const routeValue = `${this.routes[path]}`;
-    if (routeValue !== 'login' || routeValue === 'create-profile') {
-      this.showHeader();
-      this.showFooter();
-    }
+    // handle special cases
+    this.handleSpecialCaseNotLogin(routeValue);
+    this.handleSpecialCaseMovieDetails(routeValue);
     switch (routeValue) {
       case 'login':
         this.hideHeader();
@@ -106,8 +106,7 @@ export default class Router {
     this.hideLoader();
     try {
       document.querySelector(`#${routeValue}`).style.display = 'block'; // show page by given path
-    }
-    catch {
+    } catch {
       this.navigateTo('#/home');
     }
     this.setActiveTab(path);
@@ -155,6 +154,26 @@ export default class Router {
 
   hideFooter() {
     document.querySelector('.main-footer').style.display = 'none';
+  }
+
+  handleSpecialCaseNotLogin(routeValue) {
+    if (routeValue !== 'login') {
+      this.showHeader();
+      this.showFooter();
+    }
+  }
+
+  async handleSpecialCaseMovieDetails(routeValue) {
+    if (routeValue.substring(0, 13) === 'movie-details') {
+      console.log(routeValue.substring(13));
+      // update header title
+      StorageService.storage?.header?.updateTitle('Filmdetaljer');
+      const movie = await this.waitForCondition(StorageService?.storage?.movies);
+      // append movie to dom
+      const pageMovieDetails = StorageService.storage.findPageWithConstructorName('PageMovieDetails');
+      pageMovieDetails.appendMovieDetails();
+    }
+    return false;
   }
 
   // waits for condition to be met before resolving

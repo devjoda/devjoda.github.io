@@ -2,22 +2,34 @@
 @import '_mixins';
 
 #login {
-    overflow-y: hidden;
-    .login__wrapper {
+  overflow-y: hidden;
+
+  .login-title {
+    @include h1-style();
+    color: $primary-color;
+    margin-bottom: 24px;
+    font-size: 21px;
+  }
+
+  .login__wrapper {
     @include flex(column, center, center, 24px);
     column-gap: 10px;
-    margin-top: 50%;
-    }
+    margin-top: 24px;
+  }
 
-    .mdl-button--raised.mdl-button--colored {
-        background: $primary-color;
-    }
+  .mdl-button--raised.mdl-button--colored {
+    background: $primary-color;
+  }
 
-    #firebaseui-auth-container {
-        width: 100%;
-    }
+  #firebaseui-auth-container div:first-child {
+    background: $lightgrey;
+  }
+  
+  #firebaseui-auth-container {
+    width: 100%;
+  }
 
-    .login__skip {
-        color: $primary-color;
-    }
+  .login__skip {
+    color: $primary-color;
+  }
 }
